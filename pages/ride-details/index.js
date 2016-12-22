@@ -47,13 +47,13 @@ class CreateAccount extends React.Component {
     const isValid = dispatch(formsActions.submit(PAGE, rideDetails.form));
     if (isValid) {
       const destinationPoint = map.dropOff.description ?
-        map.dropOff.description : map.dropOff.formattedAddress;
+        map.dropOff.description : (map.dropOff.formatted_address || map.dropOff.formattedAddress);
 
       const destinationCity = offerRide.form.montrealDirection ?
         'Montreal' : 'Quebec';
 
       const departurePoint = map.pickUp.description ?
-        map.pickUp.description : map.pickUp.formattedAddress;
+        map.pickUp.description : (map.pickUp.formatted_address || map.pickUp.formattedAddress);
 
       const departureCity = offerRide.form.montrealDirection ? 'Quebec' : 'Montreal';
       const formToSubmit = {
