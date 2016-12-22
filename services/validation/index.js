@@ -104,12 +104,31 @@ function validateConfirmPassword(confirmPassword, eventType, form) {
   return { state: 'clean' };
 }
 
+function validateNumberOfPassengers(numOfPassengers, eventType) {
+  const required = isRequired(numOfPassengers, eventType, 'Vous devez fournir le nombre de passagers');
+  if (required) return required;
+
+  if (isNaN(parseInt(numOfPassengers))) {
+    return { state: 'error', error: 'Le nombre de passagers que vous avez fournis est invalide' };
+  }
+
+  return { state: 'valid' };
+}
+
+function validateCarDescription(carDescription, eventType) {
+  const required = isRequired(carDescription, eventType, 'Vous devez fournir une description courte de votre voiture');
+  if (required) return required;
+
+  return { state: 'valid' };
+}
+
 function validateTermsAndConditions(termsAndConditions) {
   if (!termsAndConditions) {
     return { state: 'error', error: 'Vous devez approuver les termes et conditions du service' };
   }
   return { state: 'valid' };
 }
+
 
 export function validate(val, eventType, formType, form) {
   switch (formType) {
@@ -127,6 +146,10 @@ export function validate(val, eventType, formType, form) {
       return validateConfirmPassword(val, eventType, form);
     case TERMS_AND_CONDITIONS:
       return validateTermsAndConditions(val);
+    case NUMBER_OF_PASSENGERS:
+      return validateNumberOfPassengers(val, eventType);
+    case CAR_DESCRIPTION:
+      return validateCarDescription(val, eventType);
     default:
       return { state: 'valid' };
   }

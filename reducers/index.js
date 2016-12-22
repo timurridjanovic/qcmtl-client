@@ -8,6 +8,7 @@ import appInit from './app-init';
 import tabbar from './tabbar';
 import dimensions from './dimensions';
 import  map from './map';
+import createdRides from './offer-ride';
 
 const rootReducer = combineReducers({
   navigation,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   appInit,
   tabbar,
   dimensions,
-  map
+  map,
+  createdRides
 });
 
 export default rootReducer;

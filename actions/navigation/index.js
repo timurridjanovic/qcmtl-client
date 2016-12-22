@@ -24,8 +24,29 @@ export function push(navType, route, props) {
 export function reset(navType, route) {
   return (dispatch, getState) => {
     const state = getState();
+    console.log('OOMPA');
+    console.log(state.navigation[navType]);
     if (state.navigation[navType].nav) {
+      console.log(route.title);
       state.navigation[navType].nav.resetTo({
+        title: route.title,
+        component: route.view,
+        backButtonTitle: route.backButtonTitle,
+        navigationBarHidden: !route.navBar
+      });
+      dispatch({ type: NAV_RESET, route, navType });
+    }
+  };
+}
+
+export function replace(navType, route) {
+  return (dispatch, getState) => {
+    const state = getState();
+    console.log('OOMPA');
+    console.log(state.navigation[navType]);
+    if (state.navigation[navType].nav) {
+      console.log(route.title);
+      state.navigation[navType].nav.replace({
         title: route.title,
         component: route.view,
         backButtonTitle: route.backButtonTitle,

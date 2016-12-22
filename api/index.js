@@ -32,9 +32,11 @@ function parseJSON(response) {
 }
 
 function fromJsonToForm(form) {
+  console.log('FORM: ', form);
   const newForm = new FormData();
   return Object.keys(form).reduce((newForm, key) => {
     const newKey = key.replace(/([A-Z])/g, $1 => '_'.concat($1.toLowerCase()));
+    console.log(newKey, key);
     newForm.append(newKey, form[key].toString());
     return newForm;
   }, newForm);
@@ -74,8 +76,16 @@ function request(url, req, method) {
   });
 }
 
+function fillInUserId(url, userId) {
+  return url.replace('[user]', userId);
+}
+
 export function signup(form) {
   return request(config.api.users, form, 'POST');
+}
+
+export function createRideOffer(form, userId) {
+  return request(fillInUserId(config.api.rideOffer, userId), form, 'POST');
 }
 
 export function loginWithToken(token) {
@@ -83,7 +93,6 @@ export function loginWithToken(token) {
 }
 
 export function login(form) {
-  console.log('LOGIIIN: ', form, config.api.login);
   return request(config.api.login, form, 'POST');
 }
 

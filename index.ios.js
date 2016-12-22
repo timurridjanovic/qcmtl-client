@@ -130,7 +130,8 @@ function mapStateToProps(state) {
     toaster: state.toaster,
     loading: state.loading,
     appInit: state.appInit,
-    dimensions: state.dimensions
+    dimensions: state.dimensions,
+    createdRides: state.createdRides
   };
 }
 

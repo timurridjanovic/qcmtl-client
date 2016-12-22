@@ -2,6 +2,7 @@ import * as validationServices from '../../services/validation';
 import * as toasterActions from '../toaster';
 import * as api from '../../api';
 import * as loginActions from '../login';
+import * as offerRideActions from '../offer-ride';
 
 export const FORM_TERMS_AND_CONDITIONS_CHECK = 'FORM_TERMS_AND_CONDITIONS_CHECK';
 export const FORM_UPDATE = 'FORM_UPDATE';
@@ -54,9 +55,24 @@ export function submitToServer(page, form) {
         dispatch({ type: FORM_VALIDATE, validation: { state: 'error', error }, page, formType });
         dispatch(toasterActions.showToaster({ text: error, color: 'red' }));
       }
+
       if (response.token && response.user) {
         dispatch(loginActions.loginFromSignup(response.user, response.token));
       }
     });
   };
+}
+
+export function submitRideOffer(form, userId) {
+  return dispatch => {
+    api.createRideOffer(form, userId).then(response => {
+      if (response.error && response.errorTypes) {
+        console.log('ERROR: ', response);
+      }
+
+      if (response.ride) {
+        dispatch(offerRideActions.success(response.ride));
+      }
+    });
+  }
 }

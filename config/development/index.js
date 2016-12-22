@@ -8,6 +8,7 @@ module.exports = {
   api: {
     users: apiOne + '/users',
     login: apiOne + '/login',
-    logout: apiOne + '/logout'
+    logout: apiOne + '/logout',
+    rideOffer: apiOne + '/users/[user]/rides'
   }
 };
