@@ -1,0 +1,48 @@
+{
+  "name": "QcMtlClient",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel react-cli eslint:watch",
+    "react-cli": "node node_modules/react-native/local-cli/cli.js start",
+    "eslint": "node_modules/eslint-watch/bin/esw --color .",
+    "eslint:watch": "npm run eslint -- --watch"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.8",
+    "moment": "^2.15.2",
+    "react": "15.3.2",
+    "react-native": "^0.39.0",
+    "react-native-elements": "^0.6.2",
+    "react-native-geocoder": "^0.4.5",
+    "react-native-google-places-autocomplete": "^1.2.6",
+    "react-native-keyboard-spacer": "^0.3.0",
+    "react-native-keychain": "^0.3.2",
+    "react-native-loading-spinner-overlay": "^0.3.0",
+    "react-native-maps": "^0.12.1",
+    "react-native-vector-icons": "^3.0.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "jest": {
+    "preset": "jest-react-native"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "eslint": "^3.9.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "eslint-watch": "^2.1.14",
+    "jest": "16.0.2",
+    "jest-react-native": "16.0.0",
+    "npm-run-all": "^3.1.1",
+    "react-test-renderer": "15.3.2",
+    "redux-logger": "^2.7.4"
+  }
+}

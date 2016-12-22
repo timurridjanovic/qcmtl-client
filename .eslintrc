@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "mocha": true,
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "__DEV__": true
+  },
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0, // https://github.com/Intellicode/eslint-plugin-react-native/issues/22
+    "strict": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-filename-extension": 0,
+    "import/no-extraneous-dependencies": 0,
+    "comma-dangle": 0,
+    "no-case-declarations": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "react/forbid-prop-types": 0,
+    "quote-props": 0,
+    "no-shadow": 0,
+    "arrow-parens": 0,
+    "no-param-reassign": 0,
+    "arrow-body-style": 0
+  }
+}
